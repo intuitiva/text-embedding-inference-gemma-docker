@@ -1,0 +1,9 @@
+{
+  "text-embeddings-gemma": {
+    "image": "text-embeddings-gemma.latest.12",
+    "ports": {
+      "80": "HTTPS"
+    },
+    "environment": { "RUST_LOG": "info" }
+  }
+}
