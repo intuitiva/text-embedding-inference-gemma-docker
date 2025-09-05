@@ -6,11 +6,11 @@ This repository contains a Docker container for running Gemma text embeddings in
 
 ### Download the model Data
 
-Go to [hugginface](https://huggingface.co/onnx-community/embeddinggemma-300m-ONNX/tree/main/onnx) and download
+Go to exactly this link: [hugginface](https://huggingface.co/onnx-community/embeddinggemma-300m-ONNX/tree/main/onnx) 
 
-model_q4.onnx_data
+and download "model_q4.onnx_data"
 
-and store it in /data
+and store it in data/onnx/
 
 ### Build the image
 ```bash
