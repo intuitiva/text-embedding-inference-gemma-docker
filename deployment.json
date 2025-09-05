@@ -1,6 +1,6 @@
 {
   "text-embeddings-gemma": {
-    "image": "text-embeddings-gemma.latest.13",
+    "image": "text-embeddings-gemma.latest.15",
     "ports": {
       "80": "HTTP"
     },
