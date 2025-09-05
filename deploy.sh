@@ -26,7 +26,7 @@ cat > deployment.json <<EOL
   "text-embeddings-gemma": {
     "image": "$clean_image",
     "ports": {
-      "80": "HTTPS"
+      "80": "HTTP"
     },
     "environment": { "RUST_LOG": "info" }
   }
