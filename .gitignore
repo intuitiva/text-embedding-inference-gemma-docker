@@ -1,3 +1,4 @@
 data/onnx/model_q4.onnx_data
 data/onnx/model_quantized.onnx_data
 data/onnx/model_fp16.onnx_data
+data/onnx/model_q4f16.onnx_data

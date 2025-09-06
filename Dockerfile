@@ -20,8 +20,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # ===== Final entrypoint =====
 CMD ["--model-id", "/data", \
      "--pooling", "mean", \
-     "--max-batch-tokens", "1024", \
-     "--tokenization-workers", "2", \
-     "--max-concurrent-requests", "2", \
+     "--max-batch-tokens", "2048", \
+     "--tokenization-workers", "3", \
+     "--max-concurrent-requests", "3", \
      "--max-batch-requests", "2", \
      "--port", "80"]

@@ -2,7 +2,7 @@
 
 # Get configuration from deployment.json
 region="us-east-1"
-service_name="text-embeddings-gemma"
+service_name="text-embeddings-gemma-q4f16"
 image_name="text-embeddings-gemma"
 
 #build the docker image
