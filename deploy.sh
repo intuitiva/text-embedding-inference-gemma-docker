@@ -27,8 +27,7 @@ cat > deployment.json <<EOL
     "image": "$clean_image",
     "ports": {
       "80": "HTTP"
-    },
-    "environment": { "RUST_LOG": "info" }
+    }
   }
 }
 EOL
