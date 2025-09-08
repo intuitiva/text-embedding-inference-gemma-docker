@@ -1,8 +1,0 @@
-{
-  "text-embeddings-gemma": {
-    "image": "text-embeddings-gemma-q4f16.latest.22",
-    "ports": {
-      "80": "HTTP"
-    }
-  }
-}

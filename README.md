@@ -29,8 +29,13 @@ docker build -t text-embeddings-gemma .
 ```
 
 ### Running Locally
+Set your API key without committing it:
 ```bash
-docker run --platform linux/amd64 -p 8080:80 text-embeddings-gemma
+# Option A: pass via environment
+docker run --platform linux/amd64 -p 8080:80 -e API_KEY=your-api-key text-embeddings-gemma
+
+# Option B: use a .env file (create .env from .env.example)
+docker run --platform linux/amd64 -p 8080:80 --env-file .env text-embeddings-gemma
 ```
 
 ## AWS Lightsail Deployment
@@ -41,6 +46,7 @@ docker run --platform linux/amd64 -p 8080:80 text-embeddings-gemma
 - Lightsail container service created
 
 ### Automated deploy
+Create a `.env` file (see `.env.example`) and set `API_KEY`. The deploy script will load it and inject the secret into Lightsail as a container environment variable.
 
 ```bash
 # first add permissions to execute to the deploy.sh script
@@ -76,6 +82,9 @@ Create deployment configuration files:
     "image": "your-registry-uri/text-embeddings-gemma:latest",
     "ports": {
       "80": "HTTP"
+    },
+    "environment": {
+      "API_KEY": "${API_KEY}"
     }
   }
 }
@@ -84,15 +93,15 @@ Create deployment configuration files:
 **public-endpoint.json**
 ```json
 {
-  "containerName": "text-embeddings-gemma",
+  "containerName": "text-embeddings-gemma-q4f16",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,
-    "unhealthyThreshold": 2,
-    "timeoutSeconds": 5,
+    "unhealthyThreshold": 5,
+    "timeoutSeconds": 10,
     "intervalSeconds": 30,
-    "path": "/health",
-    "successCodes": "200"
+    "path": "/",
+    "successCodes": "200-499"
   }
 }
 ```

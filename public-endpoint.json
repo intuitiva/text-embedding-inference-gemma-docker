@@ -1,5 +1,5 @@
 {
-  "containerName": "text-embeddings-gemma-q4f16",
+  "containerName": "text-embeddings-gemma",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,

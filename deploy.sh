@@ -1,9 +1,24 @@
 #!/bin/bash
 
+set -euo pipefail
+
+# Load .env if present (for local secrets). Never commit .env to git.
+if [ -f .env ]; then
+  set -a
+  . ./.env
+  set +a
+fi
+
 # Get configuration from deployment.json
 region="us-east-1"
-service_name="text-embeddings-gemma-q4f16"
+service_name="text-embeddings-gemma"
 image_name="text-embeddings-gemma"
+
+# Require API_KEY to be set via environment or .env
+if [ -z "${API_KEY:-}" ]; then
+  echo "Error: API_KEY is not set. Set it in your environment or in .env"
+  exit 1
+fi
 
 #build the docker image
 docker build -t $image_name:latest .
@@ -27,6 +42,9 @@ cat > deployment.json <<EOL
     "image": "$clean_image",
     "ports": {
       "80": "HTTP"
+    },
+    "environment": {
+      "API_KEY": "$API_KEY"
     }
   }
 }
