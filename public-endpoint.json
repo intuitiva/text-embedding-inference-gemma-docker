@@ -1,11 +1,11 @@
 {
-  "containerName": "text-embeddings-gemma",
+  "containerName": "text-embeddings-gemma-q4f16",
   "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,
-    "unhealthyThreshold": 5,
-    "timeoutSeconds": 10,
-    "intervalSeconds": 30,
+    "unhealthyThreshold": 10,
+    "timeoutSeconds": 15,
+    "intervalSeconds": 60,
     "path": "/",
     "successCodes": "200-499"
   }

@@ -11,8 +11,8 @@ fi
 
 # Get configuration from deployment.json
 region="us-east-1"
-service_name="text-embeddings-gemma"
-image_name="text-embeddings-gemma"
+service_name="text-embeddings-gemma-q4f16"
+image_name="text-embeddings-gemma-q4f16"
 
 # Require API_KEY to be set via environment or .env
 if [ -z "${API_KEY:-}" ]; then
@@ -38,7 +38,7 @@ clean_image=$(echo "$lightsail_image" | sed 's/^://')
 
 cat > deployment.json <<EOL
 {
-  "text-embeddings-gemma": {
+  "text-embeddings-gemma-q4f16": {
     "image": "$clean_image",
     "ports": {
       "80": "HTTP"
