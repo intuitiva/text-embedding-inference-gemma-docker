@@ -8,7 +8,7 @@ These are the test that I have done before to make this work:
 |-------------------|-------|--------|--------------|------------------------------|---------------|
 | [llamafiler](https://github.com/intuitiva/llamafiler-embeddings-docker) | [Qwen3-embedding-0.6B](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B-GGUF) | GGUF | 8bit | 0.95GB | 3,600ms |
 | [text-embedding-inference](https://github.com/intuitiva/text-embedding-inference-qwen3-docker) | [Qwen3-embedding-0.6B](https://huggingface.co/janni-t/qwen3-embedding-0.6b-int8-tei-onnx) | ONNX | 8bit | 1.1GB | 550ms |
-| text-embedding-inference | [EmbeddingGemma-300M](https://huggingface.co/onnx-community/embeddinggemma-300m-ONNX) | ONNX | 8bit | 0.54GB | 450ms |
+| text-embedding-inference | [EmbeddingGemma-300M](https://huggingface.co/onnx-community/embeddinggemma-300m-ONNX) | ONNX | 4bit (FP16) | 0.54GB | 450ms |
 
 > Note: I also tried [Infinity](https://github.com/michaelfeil/infinity) but they had some problems with the qwen models https://github.com/michaelfeil/infinity/issues/611 
 
