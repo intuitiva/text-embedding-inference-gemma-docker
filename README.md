@@ -20,7 +20,22 @@ and download "model_q4fp16.onnx_data"
 
 and store it in data/onnx/
 
-## RUN LOCALLY
+## RUN LOCALLY VIA COMPILING TEXT-EMBEDDING-INFERENCE FOR MAC
+
+```bash
+# install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# clone text-embeddings-inference repo
+git clone https://github.com/huggingface/text-embeddings-inference.git
+cd text-embeddings-inference
+# install backend for metal (mac)
+cargo install --path router -F metal
+# google requires you to sign a content before downloading their model
+text-embeddings-router --model-id google/embeddinggemma-300m --pooling mean --port 8080 --hf-token hf_12345
+# this is the not quantized model, it consumes around 2GB of RAM, 50ms response times (10 times faster that the online quantized version)
+```
+
+## RUN LOCALLY VIA DOCKER
 
 ### Build the image
 ```bash
@@ -38,7 +53,7 @@ docker run --platform linux/amd64 -p 8080:80 -e API_KEY=your-api-key text-embedd
 docker run --platform linux/amd64 -p 8080:80 --env-file .env text-embeddings-gemma
 ```
 
-## AWS Lightsail Deployment
+## AWS Lightsail DEPLOYMENT
 
 ### Prerequisites
 - AWS CLI installed and configured
